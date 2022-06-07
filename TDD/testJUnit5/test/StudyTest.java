@@ -264,4 +264,14 @@ public class StudyTest {
     }
     // @RepeatedTest는 반복 테스트의 이름을 설정할 수 있고, RepetitionInfo 인자를 받아서 반복 횟수를 출력할 수 있다.
 
+    /*
+    @ParameterizedTest는 @ValueSource에 있는 배열의 요소들을 하나하나 불러와 반복하는 테스트이다.
+    @RepeatedTest와 마찬가지로 name 옵션으로 이름을 지정할 수 있다.
+     */
+    @DisplayName("스터디 만들기")
+    @ParameterizedTest(name = "{index} {displayName} message={0}")
+    @ValueSource(strings = {"날씨가", "많이", "추워지고", "있네요."})
+    void parameterizedTest(String message) {
+        System.out.println(message);
+    }
 }
